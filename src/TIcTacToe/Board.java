@@ -1,31 +1,39 @@
 package TIcTacToe;
 
-import java.util.Scanner;
-
 public class Board {
     // Create an array to store each move of the play
-    private static byte[] index(){
-        return new byte[9];
+    private static char[][] grid() {
+
+        // Create a 3x3 array , character type.
+        char[][] gameBoard = new char[3][3];
+
+        // Fill the board now with dashes(A for loop for the rows and for the columns)
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                gameBoard[i][j] = '-';
+            }
+        }
+        return gameBoard;
     }
-    // Display the grid
+
+
+
+    //Print out the grid
     public static void printGrid(){
-        byte[] pos = index();
-        System.out.printf("  %d | %d | %d \n", pos[0], pos[1], pos[2]);
-        System.out.println(" ----------- ");
-        System.out.printf("  %d | %d | %d \n", pos[3], pos[4], pos[5]);
-        System.out.println(" -----------  ");
-        System.out.printf("  %d | %d | %d \n", pos[6], pos[7], pos[8]);
-    }
+       //Create an array character to save the results of the grid method (save the dashes to a array variable to print)
+        char[][] board = grid();
 
-    // Take user's input
-    private static byte input() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Type a number from 1-9: ");
-        return scanner.nextByte();
+        // For every row character in the board array
+        for (int i = 0; i < 3; i++) {
 
-        //do-while loop in case user does not enter number or types anything out of range
-    }
-    public static void out(){
-        System.out.println(input());
+            // For every column in the board array
+            for (int j = 0; j < 3; j++) {
+
+                // Print(and not println) each row and column
+                System.out.print(board[i][j]);
+            }
+            // Separate the lines from being added one under the other
+            System.out.println();
+        }
     }
 }
